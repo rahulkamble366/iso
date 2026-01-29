@@ -144,21 +144,21 @@ def main():
         }
 
         # --- Text blocks ---
-        for block in page.get_layouts(category_names="text"):
+        for block in page.get_layout_items(category_names="text"): 
             page_entry["texts"].append({
                 "text": block.text.strip() if block.text else "",
                 "bbox": block.bbox.get_export() if block.bbox else None
             })
 
         # --- Titles / Headings ---
-        for t in page.get_layouts(category_names="title"):
+        for t in page.get_layout_items(category_names="title"):
             page_entry["titles"].append({
                 "text": t.text.strip() if t.text else "",
                 "bbox": t.bbox.get_export() if t.bbox else None
             })
 
         # --- Lists ---
-        for lst in page.get_layouts(category_names="list"):
+        for lst in page.get_layout_items(category_names="list"):
             page_entry["lists"].append({
                 "text": lst.text.strip() if lst.text else "",
                 "bbox": lst.bbox.get_export() if lst.bbox else None
